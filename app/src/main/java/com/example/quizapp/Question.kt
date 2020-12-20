@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+// data class because we do not need any functions
 data class Question (
     val id: Int,
     val question: String,
