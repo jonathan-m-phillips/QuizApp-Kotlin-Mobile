@@ -11,6 +11,7 @@ class QuizQuestionsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_questions)
 
         val questionsList = Constants.getQuestions()
+        // Logcat --> verbose --> Question to see how large the questionList ArrayList is
         Log.i("Questions Size", "${questionsList.size}")
     }
 }
