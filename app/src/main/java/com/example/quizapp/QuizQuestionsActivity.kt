@@ -42,10 +42,15 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setQuestion() {
 
-        val mCurrentPosition = 1
         val question = mQuestionsList!![mCurrentPosition - 1]
 
         defaultOptionsView()
+
+        if(mCurrentPosition == mQuestionsList!!.size) {
+            btn_submit.text = "FINISH"
+        } else {
+            btn_submit.text = "SUBMIT"
+        }
 
         progress_bar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progress_bar.max
@@ -116,6 +121,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         btn_submit.text = "GO TO NEXT QUESTION"
                     }
+                    mSelectedOptionPosition = 0
                 }
             }
         }
