@@ -22,11 +22,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
-        val mQuestionsList = Constants.getQuestions()
+        mQuestionsList = Constants.getQuestions()
 
 
-//         Logcat --> verbose --> Question to see how large the questionList ArrayList is
-//         Log.i("Questions Size", "${questionsList.size}")
+         // Logcat --> verbose --> Question to see how large the questionList ArrayList is
+         // Log.i("Questions Size", "${questionsList.size}")
 
         setQuestion()
 
@@ -34,6 +34,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
         tv_option_four.setOnClickListener(this)
+        btn_submit.setOnClickListener(this)
 
 
     }
@@ -41,7 +42,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private fun setQuestion() {
 
         val mCurrentPosition = 1
-        val question: Question? = mQuestionsList?.get(mCurrentPosition - 1)
+        val question = mQuestionsList!![mCurrentPosition - 1]
 
         defaultOptionsView()
 
@@ -90,8 +91,38 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             R.id.tv_option_four -> {
                 selectedOptionView(tv_option_four, 4)
             }
+            R.id.btn_submit -> {
+
+            }
         }
     }
+
+
+    private fun answerView(answer: Int, drawableView: Int) {
+        when (answer) {
+            1 -> {
+                tv_option_one.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            2 -> {
+                tv_option_two.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            3 -> {
+                tv_option_three.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            4 -> {
+                tv_option_four.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+        }
+    }
+
 
     private fun selectedOptionView(tv: TextView, selectedOptionNumber: Int) {
         defaultOptionsView()
