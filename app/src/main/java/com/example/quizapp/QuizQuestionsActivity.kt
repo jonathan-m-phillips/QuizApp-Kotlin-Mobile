@@ -24,8 +24,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         val mQuestionsList = Constants.getQuestions()
 
-        // Logcat --> verbose --> Question to see how large the questionList ArrayList is
-        // Log.i("Questions Size", "${questionsList.size}")
+
+//         Logcat --> verbose --> Question to see how large the questionList ArrayList is
+//         Log.i("Questions Size", "${questionsList.size}")
 
         setQuestion()
 
